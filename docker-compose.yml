@@ -6,10 +6,12 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - ./postgres/data:/var/lib/postgresql/data:rw
+      - ./postgres/init:/docker-entrypoint-initdb.d:ro
     environment:
-      POSTGRES_USER: 'postgres'
-      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_USER: 'postgres' #TODO: get from env
+      POSTGRES_PASSWORD: 'postgres' #TODO: get from env
+      POSTGRES_DB: 'myapp' #TODO: get from env
     restart: always
 
   app:

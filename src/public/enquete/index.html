@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>タイトル</title>
+
+    <!-- nes.css -->
+    <!-- <link href="css/nes.min.css" rel="stylesheet" /> -->
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <!-- <link rel="stylesheet" href="https://gist.githubusercontent.com/yamahei/517211c366ab85a579a6028a9d5e2656/raw/61d6ae09855f1cd25eacf4739717b2f431f6abee/emoji_icon.css" /> -->
+    <link rel="stylesheet" href="css/emoji_icon.css" />
+    <link rel="stylesheet" href="css/basestyle.css" />
+</head>
+
+<body>
+    <div id="app">
+        <div id="header">
+            <h1>Hello App!</h1>
+        </div>
+        <div id="container">
+            <div id="navigator">
+                <ol>
+                    <li><router-link to="/">Go to Home</router-link></li>
+                    <li><router-link to="/about">Go to About</router-link></li>
+                    <li><router-link to="/enquetes">Go to List</router-link></li>
+                </ol>
+            </div>
+            <div id="content">
+                <router-view></router-view>
+            </div>
+        </div>
+        <div id="footer">
+            &copy; 2021 yamahei
+        </div>
+    </div>
+    <!--
+        Templates
+    -->
+    <!-- Components -->
+
+    <!-- Pages -->
+    <script type="text/x-template" id="PageOfHome">
+        <div>Home<i class="emoji lion"/></div>
+    </script>
+    <script type="text/x-template" id="PageOfAbout">
+        <div>About🐶</div>
+    </script>
+    <script type="text/x-template" id="PageOfList">
+        <div>
+            <button>
+                <span>➕</span>
+                <span>アンケート作成</span>
+            </button>
+        </div>
+        <div v-if="has_enquetes == true">
+            <p>
+                <span>{{ summaries.length }} 件のアンケート</span>
+            </p>
+            <ul>
+                <li v-for="summary in summaries" @click="">
+                    <span>{{ summary.name }}</span>
+                    <span>{{ summary.answer_length }}</span>
+                    <span>{{ common.get_status_name(summary.status) }}</span>
+                </li>
+            </ul>
+        </div>
+        <div v-if="has_enquetes == false">
+            <h2>アンケートがありません</h2>
+            <p>「新規作成」からアンケートを作成してください。</p>
+        </div>
+    </script>
+
+    <!--
+        Scripts
+    -->
+    <!-- <script src="https://unpkg.com/vue@3"></script> -->
+    <script src="../js_lib/TMP_vue.global.js"></script>
+    <!-- <script src="https://unpkg.com/vue-router@4"></script> -->
+    <script src="../js_lib/TMP_vue-router.global.js"></script>
+    <!-- <script src="js/https://gist.githubusercontent.com/yamahei/ec0aa4b796710756f4627dcc9f35def9/raw/3592c729511fc59e1c29078c72ece2da4865e4f7/vanilla_type.js"></script> -->
+    <script src="../js_lib/vanilla_type.js"></script>
+    <script src="./js/biz.js"></script>
+    <script src="./js/init.js"></script>
+    <script src="./js/page/enquetes.js"></script>
+    <script src="./js/debug.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>

@@ -1,5 +1,7 @@
-CREATE DATABASE myapp;
-\c myapp
+SET client_encoding = 'UTF8';
+
+-- CREATE DATABASE myapp;
+-- \c myapp
 CREATE EXTENSION "uuid-ossp";
 CREATE TYPE QUESTION_TYPE AS ENUM ('SELECT','TEXT','FILE');
 

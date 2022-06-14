@@ -7,6 +7,7 @@ module My
 class App < Sinatra::Base
 
     configure do
+        set :sessions, true
         register Sinatra::ActiveRecordExtension # use activerecord
         #use Rack::PostBodyContentTypeParser # request json
     end

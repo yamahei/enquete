@@ -1,11 +1,11 @@
 Enquete
 =======
 
- I want to create a simple, nifty, customizable survey system. 
+ I want to create a simple, nifty, customizable survey system.
 
 ```sh
 # init (create empty entities)
-#   ./postgres_data/ ... empty but required, first.
+#   ./postgres/data/ ... empty but required, first.
 #   ./schemaspy/output/ ... empty but required, first.
 #   ./src/Gemfile.lock ... empty but required, first.
 mkdir -p ./postgres/data
